@@ -1,0 +1,32 @@
+class GalleryFileSerializer(serializers.HyperlinkedModelSerializer):
+    size = serializers.CharField(source='get_image_size')
+    class Meta:
+        model= GalleryFile
+        fields = '__all__'
+
+class GalleryFileViewsets(viewsets.ModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = GalleryFileSerializer
+
+class GalleryFile(models.Model):
+    TYPES=[
+        ('Image',"Image"),
+        ('Video',"Video"),
+    ]
+    type = models.CharField( max_length=50,choices=TYPES,default=1)
+    file = CloudinaryField(blank=True,null=True)
+    link = models.CharField( max_length=255,blank=True,null=True)
+    def get_image_size(self):
+        if self.type == 'Image':
+            rep = requests.get(self.file.url)
+            i = img.open(BytesIO(rep.content))
+            print(i.size)
+            width,hieght = i.size
+            return {
+                'h':hieght,
+                'w':width,
+            }
+        else:
+            return 'This File is notan image '
+    def __str__(self):
+            return f"File-{self.pk}"

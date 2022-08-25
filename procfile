@@ -1,1 +1,1 @@
-web:gunicorn AJAD.wsgl
+web: gunicorn AJAD.wsgi --log-file -

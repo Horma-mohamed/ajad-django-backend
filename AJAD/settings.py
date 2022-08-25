@@ -95,11 +95,11 @@ WSGI_APPLICATION = 'AJAD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'forever2',
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
+        'NAME': 'd6olk962jjnn9c',
+        'USER': 'yxanpttmnrktys',
+        'PASSWORD': 'a1a71903a2bb2ef8ae138cbe6da7e2583d4763eb7852f33eddbbf1c9cd9e8302',
+        'HOST': 'ec2-3-224-184-9.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import dj_database_url
 import os
 from pathlib import Path
 import cloudinary
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-
+    'whitenoise.runserver_nostatic',
     'ckeditor',
     'main',
     'blog',
@@ -95,13 +95,16 @@ WSGI_APPLICATION = 'AJAD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd6olk962jjnn9c',
-        'USER': 'yxanpttmnrktys',
-        'PASSWORD': 'a1a71903a2bb2ef8ae138cbe6da7e2583d4763eb7852f33eddbbf1c9cd9e8302',
-        'HOST': 'ec2-3-224-184-9.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'forever2',
+        'HOST': '127.0.0.1',
+        'PORT': '5433',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation

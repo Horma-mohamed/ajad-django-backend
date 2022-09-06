@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-_qi)3$rn0o-ihg-u8$wqds10w)2@$*709#j^%-u1)2kz!_w+!m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','https://tranquil-everglades-09299.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','tranquil-everglades-09299.herokuapp.com']
 CORS_ALLOW_ALL_ORIGINS= True
 
 # Application definition

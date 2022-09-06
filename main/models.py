@@ -75,14 +75,18 @@ class Partner(models.Model):
     
 
 class Country(models.Model):
-    name = models.CharField( max_length=250)
+    name_en = models.CharField( max_length=250)
+    name_fr = models.CharField( max_length=250)
+    name_ar = models.CharField( max_length=250)
 
     def __str__(self):
-        return self.name
+        return self.name_en
 
 class Region(models.Model):
-    name= models.CharField( max_length=250)
+    name_en = models.CharField( max_length=250)
+    name_fr = models.CharField( max_length=250)
+    name_ar = models.CharField( max_length=250)
     country = models.ForeignKey("main.Country", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.name_en

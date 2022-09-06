@@ -7,9 +7,13 @@ User = get_user_model()
 
 # Create your models here.
 class Article(models.Model):
-    title = models.CharField(max_length=50)
+    title_en = models.CharField(max_length=250)
+    title_fr = models.CharField(max_length=250)
+    title_ar = models.CharField(max_length=250)
     thumb = CloudinaryField()
-    description = RichTextField()
+    description_en = RichTextField()
+    description_fr = RichTextField()
+    description_ar = RichTextField()
     album = models.OneToOneField("main.Album", on_delete=models.DO_NOTHING)
     slug = models.SlugField(max_length=50)
     author= models.ForeignKey(User,on_delete=models.CASCADE)

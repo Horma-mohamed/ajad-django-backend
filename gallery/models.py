@@ -12,16 +12,22 @@ from main.models import Country, Region
 User = get_user_model()
 # Create your models here.
 class Program(models.Model):
-    name = models.CharField( max_length=50)
+    title_en = models.CharField( max_length=250)
+    title_fr = models.CharField( max_length=250)
+    title_ar = models.CharField( max_length=250)
     icon = CloudinaryField(null=True,blank=True)
-    intro = RichTextField()
-    description = RichTextField()
+    description_en = RichTextField()
+    description_fr = RichTextField()
+    description_ar = RichTextField()
     def __str__(self):
         return self.name
 class Case(models.Model):
-    title = models.CharField( max_length=50)
-    intro = models.TextField(max_length=300)
-    description = RichTextField()
+    title_en = models.CharField( max_length=250)
+    title_fr = models.CharField( max_length=250)
+    title_ar = models.CharField( max_length=250)
+    description_en = RichTextField()
+    description_fr = RichTextField()
+    description_ar = RichTextField()
     thumb = CloudinaryField()
     author = models.ForeignKey(User,related_name='cases' ,on_delete=models.CASCADE)
     programs= models.ManyToManyField("gallery.Program",related_name='cases',blank=True,null=True)
